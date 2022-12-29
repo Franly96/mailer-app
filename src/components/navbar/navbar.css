@@ -3,8 +3,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-      gap: 20px;
-
+    gap: 20px;
+    font-size: larger;
+    font-weight: 600;
 }
 
 .navbar ul {
@@ -23,11 +24,11 @@ li {
   padding: 0;
 }
 
-a:hover{
+li a:hover{
   box-shadow:  0 -5px 3px -3px gray, 0 5px 3px -3px gray;
 }
 
-a {
+a{
   text-decoration: none;
 }
 
@@ -35,4 +36,18 @@ a {
   width:60%;
   height: 60%;
   margin: 10px 50px;
+}
+
+.compose-new{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background-color: whitesmoke;
+  color: black;
+  padding: 12px;
+  border: 1px solid;
+  border-radius: 10px;
+  margin: 10px;
 }

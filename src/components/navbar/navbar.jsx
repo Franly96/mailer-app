@@ -1,21 +1,31 @@
+import { faPen } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import React from "react";
+import { Link } from "react-router-dom";
 import "./navbar.css";
 
 function Navbar() {
   return (
     <div className="navbar">
       <div>
-        <img src="/logo.png" className="logo" alt="logo"/>
+        <Link to="/">
+          <img src="/logo.png" className="logo" alt="logo" />
+        </Link>
+      </div>
+      <div className="compose-new">
+        <FontAwesomeIcon icon={faPen} />
+        <Link to="compose">Compose</Link>
       </div>
       <ul>
         <li>
-          <a href="/inbox">Inbox</a>
+          <Link to="inbox">Inbox</Link>
         </li>
         <li>
-          <a href="/send">Send</a>
+          <Link href="send">Send</Link>
         </li>
         <li>
-          <a href="/trash">Trash</a>
+          <Link to="trash">Trash</Link>
         </li>
       </ul>
     </div>

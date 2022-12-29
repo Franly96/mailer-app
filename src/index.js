@@ -1,30 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 import "./index.css";
-import ComposeMail from "./pages/ComposeMail";
-import Inbox from "./pages/Inbox/Inbox";
-import Root from "./pages/Root/Root";
-import reportWebVitals from "./reportWebVitals";
+import { browserRouter } from "./pages/router";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    children: [
-      { path: "*", element: <Inbox /> },
-      {
-        path: "compose",
-        element: <ComposeMail />,
-      },
-    ],
-  },
-]);
+import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={browserRouter} />
   </React.StrictMode>
 );
 
