@@ -1,0 +1,12 @@
+.main-container{
+    display: grid;
+    grid-template-columns: minmax(14rem, 20%) 1fr;
+}
+
+.main-content{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
