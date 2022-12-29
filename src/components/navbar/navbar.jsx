@@ -1,11 +1,18 @@
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, redirect } from "react-router-dom";
+import { logout } from "../../authentication/AuthService";
+import UserContext from "../../authentication/UserContext";
 import "./navbar.css";
 
 function Navbar() {
+  const [ currentUser ] = useContext(UserContext);
+  const handleLogout = function() {
+    logout();
+    redirect("/")
+  };
   return (
     <div className="navbar">
       <div>
@@ -28,6 +35,10 @@ function Navbar() {
           <Link to="trash">Trash</Link>
         </li>
       </ul>
+      <div className="user-name">{currentUser}</div>
+      <div className="logout" onClick={handleLogout}>
+        Logout
+      </div>
     </div>
   );
 }

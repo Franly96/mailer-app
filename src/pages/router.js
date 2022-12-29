@@ -15,5 +15,5 @@ export const browserRouter = createBrowserRouter([
         element: <ComposeMail />,
       },
     ],
-  },
+  }
 ]);
