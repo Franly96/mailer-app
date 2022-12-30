@@ -1,17 +1,7 @@
-import React, { useReducer } from "react";
+import React, { useContext, useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
-
-export async function postData(mailInformation) {
-  mailInformation.addresses = mailInformation.addresses.split(",");
-  const requestOptions = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(mailInformation),
-  };
-  const response = await fetch("http://localhost:3000/mail", requestOptions);
-  const data = await response.json();
-  return data;
-}
+import UserContext from "../../authentication/UserContext";
+import { postData } from "../../services/postData.service";
 
 const initialState = {
   addresses: "",
@@ -35,9 +25,13 @@ function reducer(state, action) {
   }
 }
 function ComposeMail() {
+  const [currentUser] = useContext(UserContext);
   const [state, dispatch] = useReducer(reducer, initialState);
   const navigate = useNavigate();
-  
+  useEffect(() => {
+    dispatch({ type: "SET_FROM", payload: currentUser });
+  }, [currentUser]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     postData(state);

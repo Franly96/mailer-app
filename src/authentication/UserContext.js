@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import Login from "../pages/Login/Login";
-import { isAuthenticated } from "./AuthService";
+import { isAuthenticated } from "../services/AuthService";
 
 const UserContext = createContext();
 
@@ -20,8 +20,6 @@ export const UserProvider = ({ children }) => {
 
     checkLoggedIn();
   }, []);
-
-  console.log("usercontext", currentUser);
 
   return (
     <UserContext.Provider value={[currentUser, setCurrentUser]}>

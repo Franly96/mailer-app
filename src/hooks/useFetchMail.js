@@ -6,7 +6,9 @@ export function useFetchMails(query) {
   useEffect(() => {
     const fetchData = async () => {
       setStatus("fetching");
-      const response = await fetch("http://localhost:3000/mail?" + query);
+      const response = await fetch(
+        `${process.env.REACT_APP_SERVER_URL}/mail?${query}`
+      );
       const data = await response.json();
       setData(data);
       setStatus("Finished");

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { redirect } from "react-router-dom";
-import { login } from "../../authentication/AuthService";
 import UserContext from "../../authentication/UserContext";
+import { login } from "../../services/AuthService";
 import "./Login.css";
 
 function Login() {

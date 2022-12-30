@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import React, { useContext } from "react";
 import { Link, redirect } from "react-router-dom";
-import { logout } from "../../authentication/AuthService";
 import UserContext from "../../authentication/UserContext";
+import { logout } from "../../services/AuthService";
 import "./navbar.css";
 
 function Navbar() {
@@ -26,13 +26,13 @@ function Navbar() {
       </div>
       <ul>
         <li>
-          <Link to="inbox">Inbox</Link>
+          <Link to={"inbox"}>Inbox</Link>
         </li>
         <li>
-          <Link href="send">Send</Link>
+          <Link to={"send"}>Send</Link>
         </li>
         <li>
-          <Link to="trash">Trash</Link>
+          <Link to={"trash"}>Trash</Link>
         </li>
       </ul>
       <div className="user-name">{currentUser}</div>

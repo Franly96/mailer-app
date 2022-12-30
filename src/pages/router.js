@@ -8,12 +8,14 @@ export const browserRouter = createBrowserRouter([
     path: "/",
     element: <Root />,
     children: [
-      { path: "", element: <Inbox /> },
-      { path: "*", element: <Inbox /> },
+      { path: "", element: <Inbox param="inbox" /> },
+      { path: "inbox", element: <Inbox param="inbox" /> },
+      { path: "send", element: <Inbox param="from" /> },
+      { path: "trash", element: <Inbox param="deleted" /> },
       {
         path: "compose",
         element: <ComposeMail />,
       },
     ],
-  }
+  },
 ]);
