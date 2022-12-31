@@ -1,0 +1,85 @@
+.compose-mail-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 80%;
+    margin: auto;
+}
+
+.title{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    text-transform: capitalize;
+    color: #000000;
+    margin: 40px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+.input-content label {
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 400;
+    color: #333;
+    text-transform: capitalize;
+    text-align: left;
+    width: 20%;
+}
+
+.input-content input{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    outline: none;
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    color: #333;
+}
+
+.input-content textarea{
+    width: 100%;
+    border: none;
+    resize: none;
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+};    
+
+.btn-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.form-btn{
+    width: 100px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    outline: none;
+    font-size: 16px;
+    padding: 10px;
+}

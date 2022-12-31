@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import UserContext from "../../authentication/UserContext";
 import { postData } from "../../services/postData.service";
 import { newMailSended } from "../../services/WSService";
+import './ComposeMail.css';
 
 const initialState = {
   addresses: "",
@@ -25,6 +26,7 @@ function reducer(state, action) {
       return state;
   }
 }
+
 function ComposeMail() {
   const [currentUser] = useContext(UserContext);
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -46,46 +48,50 @@ function ComposeMail() {
 
   return (
     <div className="compose-mail-container">
-      <h2>New Message:</h2>
+      <div className="title">New Message</div>
       <form onSubmit={handleSubmit}>
-        <label>Mail Subject:</label>
-        <br />
-        <input
-          type="text"
-          name="Mail Subject"
-          id="subject"
-          value={state.subject}
-          onChange={(e) =>
-            dispatch({ type: "SET_SUBJECT", payload: e.target.value })
-          }
-        />
-        <br />
-        <label>To:</label>
-        <br />
-        <input
-          type="text"
-          name="Mail Subject"
-          id="adresses"
-          value={state.addresses}
-          onChange={(e) =>
-            dispatch({ type: "SET_ADDRESSES", payload: e.target.value })
-          }
-        />
-        <br />
-        <label>Mail Message:</label>
-        <br />
-        <textarea
-          name="message"
-          id="message"
-          cols="100"
-          rows="20"
-          value={state.message}
-          onChange={(e) =>
-            dispatch({ type: "SET_MESSAGE", payload: e.target.value })
-          }></textarea>
-        <br />
-        <input type="submit" value="Send" />
-        <button onClick={handleCancel}>Cancel</button>
+        <div className="input-content">
+          <label>Mail Subject:</label>
+          <input
+            type="text"
+            name="Mail Subject"
+            id="subject"
+            value={state.subject}
+            onChange={(e) =>
+              dispatch({ type: "SET_SUBJECT", payload: e.target.value })
+            }
+          />
+        </div>
+        <div className="input-content">
+          <label>To:</label>
+          <input
+            type="text"
+            name="Mail Subject"
+            id="adresses"
+            value={state.addresses}
+            onChange={(e) =>
+              dispatch({ type: "SET_ADDRESSES", payload: e.target.value })
+            }
+          />
+        </div>
+        <div className="input-content">
+          <label>Mail Message:</label>
+          <textarea
+            name="message"
+            id="message"
+            cols="100"
+            rows="20"
+            value={state.message}
+            onChange={(e) =>
+              dispatch({ type: "SET_MESSAGE", payload: e.target.value })
+            }></textarea>
+        </div>
+        <div className="btn-container">
+          <input type="submit" value="Send" className="form-btn" />
+          <button onClick={handleCancel} className="form-btn">
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
   );
