@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export function useFetchMails(query) {
+export function useFetchMails(query, newMail) {
   const [status, setStatus] = useState("loading");
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -14,6 +14,6 @@ export function useFetchMails(query) {
       setStatus("Finished");
     };
     fetchData();
-  }, [query]);
+  }, [query, newMail]);
   return { status, data };
 }

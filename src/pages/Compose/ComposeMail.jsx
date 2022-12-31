@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../../authentication/UserContext";
 import { postData } from "../../services/postData.service";
+import { newMailSended } from "../../services/WSService";
 
 const initialState = {
   addresses: "",
@@ -32,9 +33,10 @@ function ComposeMail() {
     dispatch({ type: "SET_FROM", payload: currentUser });
   }, [currentUser]);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    postData(state);
+    const data = await postData(state);
+    newMailSended(state.addresses, data._id);
     navigate(-1);
   };
   const handleCancel = (event) => {
