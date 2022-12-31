@@ -1,11 +1,22 @@
 .mail-list-element{
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    border: solid 1px gray; 
+    border: solid 1px gray;
+    padding: 5px 10px;
+}
+
+.mail-element{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 90%;
 }
 
 .mail-list-element:hover{
     cursor: pointer;
     box-shadow:  0 -5px 3px -3px gray, 0 5px 3px -3px gray;
+}
+
+.delete-icon{
+    color: red;
 }

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../../authentication/UserContext";
-import { postData } from "../../services/postData.service";
+import { addMail } from "../../services/Mail.service";
 import { newMailSended } from "../../services/WSService";
 import './ComposeMail.css';
 
@@ -37,7 +37,7 @@ function ComposeMail() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = await postData(state);
+    const data = await addMail(state);
     newMailSended(state.addresses, data._id);
     navigate(-1);
   };

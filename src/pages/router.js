@@ -1,21 +1,19 @@
-import { createBrowserRouter } from "react-router-dom";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route
+} from "react-router-dom";
 import ComposeMail from "./Compose/ComposeMail";
 import Inbox from "./Inbox/Inbox";
 import Root from "./Root/Root";
 
-export const browserRouter = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    children: [
-      { path: "", element: <Inbox param="inbox" /> },
-      { path: "inbox", element: <Inbox param="inbox" /> },
-      { path: "send", element: <Inbox param="from" /> },
-      { path: "trash", element: <Inbox param="deleted" /> },
-      {
-        path: "compose",
-        element: <ComposeMail />,
-      },
-    ],
-  },
-]);
+export const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Root />}>
+      <Route path="inbox" element={<Inbox param="inbox" />} />
+      <Route path="send" element={<Inbox param="from" />} />
+      <Route path="trash" element={<Inbox param="deleted" />} />
+      <Route path="compose" element={<ComposeMail />} />
+    </Route>
+  )
+);
